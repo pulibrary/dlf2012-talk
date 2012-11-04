@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<title>Disruptive Components: Reimagining Archival Access Systems 
+at Princeton University Library
+</title>
+</head>
+
+<!-- Your Slides -->
+<!-- One section is one slide -->
+
+<section>
+    <!-- This is the first slide -->
+    <h1>Disruptive Components</h1>
+    <h3>Reimagining Archival Access Systems at Princeton University Library</h3>
+    <footer><img style="float:left;" src="img/pu_logo_grey.png">Regine Heberlein, Jon Stroop, Shaun Ellis</footer>
+</section>
+
+<section>
+    <h1>Finding Aids</h1>
+    <p><a href="http://findingaids.princeton.edu/collections/C0001.pdf">http://findingaids.princeton.edu/collections/C0001.pdf
+</a></p>
+</section>
+
+<section>
+    <figure> <!-- Figures are used to display images and videos fullpage -->
+      <img src="slides/Slide03.jpg">
+      <!--<figcaption>An image</figcaption>-->
+    </figure>
+</section>
+
+<section>
+    <figure> <!-- Figures are used to display images and videos fullpage -->
+      <img src="slides/Slide04.jpg">
+      <!--<figcaption>An image</figcaption>-->
+    </figure>
+</section>
+
+<section>
+    <figure> <!-- Figures are used to display images and videos fullpage -->
+      <img src="slides/Slide05.jpg">
+      <!--<figcaption>An image</figcaption>-->
+    </figure>
+</section>
+
+<section>
+    <figure> <!-- Figures are used to display images and videos fullpage -->
+      <img src="slides/Slide06.jpg">
+      <!--<figcaption>An image</figcaption>-->
+    </figure>
+</section>
+
+<section>
+    <figure> <!-- Figures are used to display images and videos fullpage -->
+      <img src="slides/Slide07.jpg">
+      <!--<figcaption>An image</figcaption>-->
+    </figure>
+</section>
+
+<section>
+    <figure> <!-- Figures are used to display images and videos fullpage -->
+      <img src="slides/Slide08.jpg">
+      <!--<figcaption>An image</figcaption>-->
+    </figure>
+</section>
+
+<section>
+    <figure> <!-- Figures are used to display images and videos fullpage -->
+      <img src="slides/Slide09.jpg">
+      <!--<figcaption>An image</figcaption>-->
+    </figure>
+</section>
+
+<section>
+    <figure> <!-- Figures are used to display images and videos fullpage -->
+      <img src="slides/Slide10.jpg">
+      <!--<figcaption>An image</figcaption>-->
+    </figure>
+</section>
+
+<section>
+    <figure> <!-- Figures are used to display images and videos fullpage -->
+      <img src="slides/Slide11.jpg">
+      <!--<figcaption>An image</figcaption>-->
+    </figure>
+</section>
+
+<section>
+    <figure> <!-- Figures are used to display images and videos fullpage -->
+      <img src="slides/Slide12.jpg">
+      <!--<figcaption>An image</figcaption>-->
+    </figure>
+</section>
+
+<section>
+    <figure> <!-- Figures are used to display images and videos fullpage -->
+      <img src="slides/Slide13.jpg">
+      <!--<figcaption>An image</figcaption>-->
+    </figure>
+</section>
+
+<section>
+    <figure> <!-- Figures are used to display images and videos fullpage -->
+      <img src="slides/Slide14.jpg">
+      <!--<figcaption>An image</figcaption>-->
+    </figure>
+</section>
+
+<section>
+    <h1>Architecture and Services</h1>
+    <footer>Jon Stroop</footer>
+</section>
+
+<section>
+  <div class="codeblock">
+    <pre>
+      <code>
+      /collections/{call_number}
+      /collections/{call_number}/{component_id}
+      /repositories
+      /topics
+      </code>
+    </pre>
+  </div>
+</section>
+
+<section>
+  <div class="codeblock">
+    <pre>
+      <code>
+      /search?pi=mss
+      /search?sulocal=American%20politics%20and%20government
+      </code>
+    </pre>
+  </div>
+</section>
+
+<section>
+  <div class="codeblock">
+    <pre>
+      <code>
+      /repositories/{repository_id}
+      /topics/{topic_id}
+      </code>
+    </pre>
+  </div>
+</section>
+
+<section>
+  <div class="codeblock">
+    <pre>
+      <code class="bigcodeblock">
+      /collections                              # All collections
+      /collections/{call_number}                # Collection with $call_number
+      /collections/{call_number}/{component_id} # $component of collection with $call_number
+      /collections/{respository_id}             # All collections in $respository
+      /collections/{topic_id}                   # All collections with $topic
+      /repositories                             # All repositories
+      /repositories/{repository_id}             # $repository
+      /topics                                   # All topics
+      /topics/{topic_id}                        # $topic
+      /names                                    # All names (eac-cpf)
+      /name/{name_id}                           # $name
+      </code>
+    </pre>
+  </div>
+</section>
+
+<section>
+  <div class="codeblock">
+    <pre>
+    <code class="bigcodeblock">
+    &lt; HTTP/1.1 200 OK
+    &lt; Date: Sat, 03 Nov 2012 15:08:45 GMT
+    &lt; Server: Jetty/5.1.12 (Linux/3.2.0-29-generic amd64 java/1.6.0_24
+    &lt; Cache-Control: public
+    &lt; Content-Type: application/x-solr+xml
+    &lt; Link: &lt;http://findingaids.princeton.edu/collections?start=2&gt;;rel=next,
+        &lt;http://findingaids.princeton.edu/collections?start=1&gt;;rel=self,
+        &lt;http://findingaids.princeton.edu/collections?start=0&gt;;rel=prev,
+        &lt;http://findingaids.princeton.edu/collections?start=2251&gt;;rel=last,
+        &lt;http://findingaids.princeton.edu/collections/C0398&gt;;rel=canonical
+    &lt; X-exist-id: 15
+    &lt; Last-Modified: Fri, 19 Oct 2012 06:00:46 GMT
+    &lt; ...
+    </code>
+    </pre>
+  </div>
+</section>
+
+<section>
+  <div class="codeblock">
+    <pre>
+    <code>
+        /collections/{name_id} # All collections concerned with $name
+        /names/{collection_id} # All names in $collection
+        /names/{topic_id}      # All names related to $topic
+    </code>
+    </pre>
+  </div>
+</section>
+
+<section>
+  <div class="codeblock">
+   <pre>
+    <code>       
+            Start
+              |
+         GET $uri.xml  &lt;-----------------+
+              |                          |
+      Link w/ rel=next? (T) --&gt; $uri = &lt;(*)&gt;;rel=next
+              | (F)
+            Done
+</code></pre>
+  </div>
+</section>
+
+
+<section>
+    <h1>User Experience</h1>
+    <footer>Shaun Ellis</footer>
+</section>
+
+<section>
+    <h1>Design = Solving Problems</h1>
+    <p>&quot;think of cleaner floors, not better vacuum cleaners&quot;</p>
+
+    <div role="note">When you boil it all down, the process of design is not so much about choosing colors, fonts, rounded corners, etc. It’s about solving problems.  So when we are asked to “redesign” a web site, we are really being asked to provide solutions to any number of problems that have been impeding our users from reaching their goals.  We are providing value when we enable our users to achieve their goals with ease and delight.  I love to crib a quote from Brian Matthews (Virginia Tech) in that we should be thinking of cleaner floors, not better vacuum cleaners.</div>
+</section>
+
+<section>
+    <h1>Goals Document</h1>
+    <ul class="incremental">
+      <li>Goal</li>
+      <li>Examples</li>
+      <li>Problem Statement</li>
+    </ul>
+    <div role="note">We were very fortunate in that the leaders of our working group already had a deep understanding of the users’ goals and problems going into the project, both from first-hand experience and from being well-read on forward-thinking ideas shared among the archivist community.   They articulated their vision in a “goals document”, in a format that stated a <strong>goal</strong>, <strong>examples</strong>, and  <strong>the problem(s) it solves</strong>.  This may seem trivial, but it is amazing how many projects don’t have a prioritized list of clearly stated goals.</div>
+</section>
+
+<section>
+  <h1>Goal</h1>
+  <ul>
+            <li>More flexible and modular representation of finding aids</ul>
+</section>
+
+<section>
+  <h1>Examples</h1>
+          <ul>
+            <li>California Digital Library/Online Archive of California
+            <li>City Archives of Amsterdam
+          </ul>
+</section>
+
+<section>
+  <h1>Problem Statement</h1>
+  <ul><li>Finding aid display currently mimics the structure of paper finding aids, with the entire, often lengthy, documents loaded at once.  This traditional display method presents both usability and performance issues. Possibilities include ... </ul>
+
+    <div role="note">Important note:  They were not dictating the solution in terms of technology.  They were merely stating the main problems associated with moving analog documents, designed for use in a reading room, onto the web.   They offered some suggestions as to how to solve those problems, but left the how up to the design/development team.</div>
+</section>
+
+<section>
+  <h1>Path to Usability</h1>
+  <ul class="incremental">
+      <li>Reduce Visual Complexity</li>
+      <li>Increase Prototypicality</li>
+    </ul>
+
+    <div role="note">So, how do we decide how to solve these problems?  Where do we begin when it comes to improving usability?  A recent study at Google [1] demonstrated that the the lion’s share of usability improvements can be achieved by simply reducing Visual Complexity and increasing Prototypicality.  In other words, cut out the cruft and use common web conventions.  So, in our first prototypes of the new site, I stripped out any information that I deemed unnecessary.  Second, we sought to implement existing design patterns such as breadcrumbs and tree menus, both of which are common solutions to the problems of losing context when navigating hierarchical information.</div>
+</section>
+
+<section>
+  <h1>Tension between Prototypicality and Innovation</h1>
+  <p>There are two scenarios in which we should consider breaking a design pattern:</p>
+  <ul class="incremental">
+      <li>The established way becomes outdated</li>
+      <li>The new way empirically improves usability</li>
+    </ul>
+
+    <div role="note">Innovation usually requires breaking convention to some degree.  So when is changing something familiar to something different OK?  There are two scenarios in which we should consider breaking a design pattern: 1) The established way becomes outdated (where’s the “save” floppy disk icon in Google drive?) and 2) The new way empirically improves usability.  For example, long ginormous finding aids are actually a convention that expert researchers are used to.  Yet, it is out of step with modern web conventions and creates too much visual complexity.  How do we know that our new approach actually makes the site more usable?  Point to “empirically”...</div>
+</section>
+
+<section>
+  <h1>Discount Usability Testing</h1>
+  <h3>(Science without Grants!)</h3>
+  <p>There are two scenarios in which we should consider breaking a design pattern:</p>
+  <ul class="incremental">
+      <li>Identify Personas (aka User Types) and Recruitment</li>
+      <li>Create “Tasks” for Testing Scripts</li>
+      <li>Use an Ethnographic Approach - (feel their pain!)</li>
+    </ul>
+
+    <div role="note">The only way we can test our new features before they get to production is to develop a prototype with real data as quickly as possible and observe a handful of real users.</div>
+</section>
+
+<section>
+  <h1>Bootstrap</h1>
+  <h3>Indispensable Tool #1</h3>
+
+    <div role="note">Bootstrap is a style guide for the web content and applications in the sense that it offers consistency and a wide range of design patterns to use.  It allows testers to not get distracted by colors, fonts, and other design decisions.  To develop our prototype, I literally copied and pasted example code.  Demonstrate technique using the Bootstrap site.</div>
+</section>
+
+<section>
+  <h1>Trello</h1>
+  <h3>Indispensable Tool #2</h3>
+  <ul class="incremental">
+      <li>Traditional “Ticketing/Bug Tracking Systems” are not user friendly enough  and require too many clicks for basic tasks
+</li>
+      <li>Trello is more flexible, productive, and FUN!</li>
+      <li>Ongoing Feedback goes here and is prioritized for each development cycle.  Interpretation of feedback can be discussed among the group and honed into “goals, problems, solutions”.</li>
+    </ul>
+</section>
+
+<section>
+  <h1>Questions?</h1>
+  <h3>Contact info, citations...</h3>
+</section>
+
+<!-- Your Style -->
+<!-- Define the style of your presentation -->
+
+<!-- Maybe a font from http://www.google.com/webfonts ? -->
+<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+<link href='http://fonts.googleapis.com/css?family=Alegreya+SC:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<style>
+  html, .view body { 
+    /*
+    background-color: black; 
+    */
+    background-color: #f3a425;
+    counter-reset: slideidx; 
+  }
+  body, .view section { 
+    /*
+    background-color: white; border-radius: 12px 
+    */
+        background-color: #f5d49f;
+        color: #37270A;
+        color: #000;
+        background: -webkit-gradient(linear, right bottom, left top, from(#f5d49f), to(#fff));
+        background: -moz-linear-gradient(left top 315deg, #f5d49f, #fff);
+        background: linear-gradient(bottom, #f5d49f, #fff);
+
+  box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px;
+    -o-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px; 
+
+        -moz-border-radius: 10px;
+        -khtml-border-radius: 10px;
+        border-radius: 10px; /* includes Opera 10.5+ */
+        -webkit-border-radius: 10px;
+  }
+  /* A section is a slide. It's size is 800x600, and this will never change */
+  section, .view head > title {
+      /* The font from Google
+      font-family: 'Oswald', arial, serif; */
+      font-family: 'Alegreya SC', serif;
+      font-size: 30px;
+  }
+
+  .view section:after {
+    counter-increment: slideidx;
+    content: counter(slideidx, decimal-leading-zero);
+    position: absolute; bottom: -80px; right: 100px;
+    color: white;
+  }
+
+  .view head > title {
+    color: white;
+    text-align: center;
+    margin: 1em 0 1em 0;
+  }
+
+  h1, h2 {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 50px;
+  }
+  h3 {
+    margin: 50px 0 20px 100px;
+  }
+
+  ul {
+      margin: 50px 100px;
+      font-size: 20px;
+  }
+
+  p {
+    margin: 75px;
+    font-size: 26px;
+  }
+
+  .codeblock {
+    margin-top: 100px;
+    background-color: #F8F8F8;
+    border: 1px solid #CCC;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+    border-radius: 3px;
+  }
+
+  pre, code, tt {
+    font: 18px Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+  }
+
+  .bigcodeblock {
+    font-size: 14px;
+  }
+
+  blockquote {
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-size: 60px;
+    padding: 50px;
+  }
+  blockquote:before {
+    content: open-quote;
+  }
+  blockquote:after {
+    content: close-quote;
+  }
+
+  /* Figures are displayed full-page, with the caption
+     on top of the image/video */
+  figure {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+  }
+  figure > * {
+    position: absolute;
+  }
+  figure > img, figure > video {
+    width: 100%; height: 100%;
+  }
+  figcaption {
+    margin: 70px;
+    font-size: 50px;
+  }
+
+  footer {
+    font-size: 25px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 40px;
+    text-align: right;
+    /*background-color: #F3F4F8;*/
+    background-color: #bcbdc1;
+    border-top: 1px solid #666;
+  }
+
+  /* Transition effect */
+  /* Feel free to change the transition effect for original
+     animations. See here:
+     https://developer.mozilla.org/en/CSS/CSS_transitions
+     How to use CSS3 Transitions: */
+  section {
+    
+    -moz-transition: left 400ms ease-in-out 0s;
+    -webkit-transition: left 400ms ease-in-out 0s;
+    -ms-transition: left 400ms ease-in-out 0s;
+    transition: left 400ms ease-in-out 0s;
+
+ /*   
+    -moz-transition: left 400ms linear 0s;
+    -webkit-transition: left 400ms linear 0s;
+    -ms-transition: left 400ms linear 0s;
+    transition: left 400ms linear 0s;
+
+    -webkit-transition: -webkit-transform 1s ease-in-out;
+    -moz-transition: -moz-transform 1s ease-in-out;
+    -o-transition: -o-transform 1s ease-in-out;
+    transition: transform 1s ease-in-out;
+ */
+
+  }
+  .view section {
+    -moz-transition: none;
+    -webkit-transition: none;
+    -ms-transition: none;
+    transition: none;
+  }
+
+  .view section[aria-selected] {
+    border: 5px red solid;
+  }
+
+  /* Before */
+  section { left: -150%; }
+  /* Now */
+  section[aria-selected] { left: 0; }
+  /* After */
+  section[aria-selected] ~ section { left: +150%; }
+
+  /* Incremental elements */
+
+  /* By default, visible */
+  .incremental > * { opacity: 1; }
+
+  /* The current item */
+  .incremental > *[aria-selected] { opacity: 1; }
+
+  /* The items to-be-selected */
+  .incremental > *[aria-selected] ~ * { opacity: 0; }
+
+  /* The progressbar, at the bottom of the slides, show the global
+     progress of the presentation. */
+  #progress-bar {
+    height: 2px;
+    background: #AAA;
+  }
+
+
+</style>
+
+<!-- {{{{ dzslides core
+#
+#
+#     __  __  __       .  __   ___  __
+#    |  \  / /__` |    | |  \ |__  /__`
+#    |__/ /_ .__/ |___ | |__/ |___ .__/ core :€
+#
+#
+# The following block of code is not supposed to be edited.
+# But if you want to change the behavior of these slides,
+# feel free to hack it!
+#
+-->
+
+<div id="progress-bar"></div>
+
+<!-- Default Style -->
+<style>
+  * { margin: 0; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+  [role="note"] { display: none; }
+  body {
+    width: 800px; height: 600px;
+    margin-left: -400px; margin-top: -300px;
+    position: absolute; top: 50%; left: 50%;
+    overflow: hidden;
+    display: none;
+  }
+  .view body {
+    position: static;
+    margin: 0; padding: 0;
+    width: 100%; height: 100%;
+    display: inline-block;
+    overflow: visible; overflow-x: hidden;
+    /* undo Dz.onresize */
+    transform: none !important;
+    -moz-transform: none !important;
+    -webkit-transform: none !important;
+    -o-transform: none !important;
+    -ms-transform: none !important;
+  }
+  .view head, .view head > title { display: block }
+  section {
+    position: absolute;
+    pointer-events: none;
+    width: 100%; height: 100%;
+  }
+  .view section {
+    pointer-events: auto;
+    position: static;
+    width: 800px; height: 600px;
+    margin: -150px -200px;
+    float: left;
+
+    transform: scale(.4);
+    -moz-transform: scale(.4);
+    -webkit-transform: scale(.4);
+    -o-transform: scale(.4);
+    -ms-transform: scale(.4);
+  }
+  .view section > * { pointer-events: none; }
+  section[aria-selected] { pointer-events: auto; }
+  html { overflow: hidden; }
+  html.view { overflow: visible; }
+  body.loaded { display: block; }
+  .incremental {visibility: hidden; }
+  .incremental[active] {visibility: visible; }
+  #progress-bar{
+    bottom: 0;
+    position: absolute;
+    -moz-transition: width 400ms linear 0s;
+    -webkit-transition: width 400ms linear 0s;
+    -ms-transition: width 400ms linear 0s;
+    transition: width 400ms linear 0s;
+  }
+  .view #progress-bar {
+    display: none;
+  }
+</style>
+
+<script>
+  var Dz = {
+    remoteWindows: [],
+    idx: -1,
+    step: 0,
+    html: null,
+    slides: null,
+    progressBar : null,
+    params: {
+      autoplay: "1"
+    }
+  };
+
+  Dz.init = function() {
+    document.body.className = "loaded";
+    this.slides = Array.prototype.slice.call($$("body > section"));
+    this.progressBar = $("#progress-bar");
+    this.html = document.body.parentNode;
+    this.setupParams();
+    this.onhashchange();
+    this.setupTouchEvents();
+    this.onresize();
+    this.setupView();
+  }
+
+  Dz.setupParams = function() {
+    var p = window.location.search.substr(1).split('&');
+    p.forEach(function(e, i, a) {
+      var keyVal = e.split('=');
+      Dz.params[keyVal[0]] = decodeURIComponent(keyVal[1]);
+    });
+  // Specific params handling
+    if (!+this.params.autoplay)
+      $$.forEach($$("video"), function(v){ v.controls = true });
+  }
+
+  Dz.onkeydown = function(aEvent) {
+    // Don't intercept keyboard shortcuts
+    if (aEvent.altKey
+      || aEvent.ctrlKey
+      || aEvent.metaKey
+      || aEvent.shiftKey) {
+      return;
+    }
+    if ( aEvent.keyCode == 37 // left arrow
+      || aEvent.keyCode == 38 // up arrow
+      || aEvent.keyCode == 33 // page up
+    ) {
+      aEvent.preventDefault();
+      this.back();
+    }
+    if ( aEvent.keyCode == 39 // right arrow
+      || aEvent.keyCode == 40 // down arrow
+      || aEvent.keyCode == 34 // page down
+    ) {
+      aEvent.preventDefault();
+      this.forward();
+    }
+    if (aEvent.keyCode == 35) { // end
+      aEvent.preventDefault();
+      this.goEnd();
+    }
+    if (aEvent.keyCode == 36) { // home
+      aEvent.preventDefault();
+      this.goStart();
+    }
+    if (aEvent.keyCode == 32) { // space
+      aEvent.preventDefault();
+      this.toggleContent();
+    }
+    if (aEvent.keyCode == 70) { // f
+      aEvent.preventDefault();
+      this.goFullscreen();
+    }
+    if (aEvent.keyCode == 79) { // o
+      aEvent.preventDefault();
+      this.toggleView();
+    }
+  }
+
+  /* Touch Events */
+
+  Dz.setupTouchEvents = function() {
+    var orgX, newX;
+    var tracking = false;
+
+    var db = document.body;
+    db.addEventListener("touchstart", start.bind(this), false);
+    db.addEventListener("touchmove", move.bind(this), false);
+
+    function start(aEvent) {
+      aEvent.preventDefault();
+      tracking = true;
+      orgX = aEvent.changedTouches[0].pageX;
+    }
+
+    function move(aEvent) {
+      if (!tracking) return;
+      newX = aEvent.changedTouches[0].pageX;
+      if (orgX - newX > 100) {
+        tracking = false;
+        this.forward();
+      } else {
+        if (orgX - newX < -100) {
+          tracking = false;
+          this.back();
+        }
+      }
+    }
+  }
+
+  Dz.setupView = function() {
+    document.body.addEventListener("click", function ( e ) {
+      if (!Dz.html.classList.contains("view")) return;
+      if (!e.target || e.target.nodeName != "SECTION") return;
+
+      Dz.html.classList.remove("view");
+      Dz.setCursor(Dz.slides.indexOf(e.target) + 1);
+    }, false);
+  }
+
+  /* Adapt the size of the slides to the window */
+
+  Dz.onresize = function() {
+    var db = document.body;
+    var sx = db.clientWidth / window.innerWidth;
+    var sy = db.clientHeight / window.innerHeight;
+    var transform = "scale(" + (1/Math.max(sx, sy)) + ")";
+
+    db.style.MozTransform = transform;
+    db.style.WebkitTransform = transform;
+    db.style.OTransform = transform;
+    db.style.msTransform = transform;
+    db.style.transform = transform;
+  }
+
+
+  Dz.getNotes = function(aIdx) {
+    var s = $("section:nth-of-type(" + aIdx + ")");
+    var d = s.$("[role='note']");
+    return d ? d.innerHTML : "";
+  }
+
+  Dz.onmessage = function(aEvent) {
+    var argv = aEvent.data.split(" "), argc = argv.length;
+    argv.forEach(function(e, i, a) { a[i] = decodeURIComponent(e) });
+    var win = aEvent.source;
+    if (argv[0] === "REGISTER" && argc === 1) {
+      this.remoteWindows.push(win);
+      this.postMsg(win, "REGISTERED", document.title, this.slides.length);
+      this.postMsg(win, "CURSOR", this.idx + "." + this.step);
+      return;
+    }
+    if (argv[0] === "BACK" && argc === 1)
+      this.back();
+    if (argv[0] === "FORWARD" && argc === 1)
+      this.forward();
+    if (argv[0] === "START" && argc === 1)
+      this.goStart();
+    if (argv[0] === "END" && argc === 1)
+      this.goEnd();
+    if (argv[0] === "TOGGLE_CONTENT" && argc === 1)
+      this.toggleContent();
+    if (argv[0] === "SET_CURSOR" && argc === 2)
+      window.location.hash = "#" + argv[1];
+    if (argv[0] === "GET_CURSOR" && argc === 1)
+      this.postMsg(win, "CURSOR", this.idx + "." + this.step);
+    if (argv[0] === "GET_NOTES" && argc === 1)
+      this.postMsg(win, "NOTES", this.getNotes(this.idx));
+  }
+
+  Dz.toggleContent = function() {
+    // If a Video is present in this new slide, play it.
+    // If a Video is present in the previous slide, stop it.
+    var s = $("section[aria-selected]");
+    if (s) {
+      var video = s.$("video");
+      if (video) {
+        if (video.ended || video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      }
+    }
+  }
+
+  Dz.setCursor = function(aIdx, aStep) {
+    // If the user change the slide number in the URL bar, jump
+    // to this slide.
+    aStep = (aStep != 0 && typeof aStep !== "undefined") ? "." + aStep : ".0";
+    window.location.hash = "#" + aIdx + aStep;
+  }
+
+  Dz.onhashchange = function() {
+    var cursor = window.location.hash.split("#"),
+        newidx = 1,
+        newstep = 0;
+    if (cursor.length == 2) {
+      newidx = ~~cursor[1].split(".")[0];
+      newstep = ~~cursor[1].split(".")[1];
+      if (newstep > Dz.slides[newidx - 1].$$('.incremental > *').length) {
+        newstep = 0;
+        newidx++;
+      }
+    }
+    this.setProgress(newidx, newstep);
+    if (newidx != this.idx) {
+      this.setSlide(newidx);
+    }
+    if (newstep != this.step) {
+      this.setIncremental(newstep);
+    }
+    for (var i = 0; i < this.remoteWindows.length; i++) {
+      this.postMsg(this.remoteWindows[i], "CURSOR", this.idx + "." + this.step);
+    }
+  }
+
+  Dz.back = function() {
+    if (this.idx == 1 && this.step == 0) {
+      return;
+    }
+    if (this.step == 0) {
+      this.setCursor(this.idx - 1,
+                     this.slides[this.idx - 2].$$('.incremental > *').length);
+    } else {
+      this.setCursor(this.idx, this.step - 1);
+    }
+  }
+
+  Dz.forward = function() {
+    if (this.idx >= this.slides.length &&
+        this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
+        return;
+    }
+    if (this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
+      this.setCursor(this.idx + 1, 0);
+    } else {
+      this.setCursor(this.idx, this.step + 1);
+    }
+  }
+
+  Dz.goStart = function() {
+    this.setCursor(1, 0);
+  }
+
+  Dz.goEnd = function() {
+    var lastIdx = this.slides.length;
+    var lastStep = this.slides[lastIdx - 1].$$('.incremental > *').length;
+    this.setCursor(lastIdx, lastStep);
+  }
+
+  Dz.toggleView = function() {
+    this.html.classList.toggle("view");
+
+    if (this.html.classList.contains("view")) {
+      $("section[aria-selected]").scrollIntoView(true);
+    }
+  }
+
+  Dz.setSlide = function(aIdx) {
+    this.idx = aIdx;
+    var old = $("section[aria-selected]");
+    var next = $("section:nth-of-type("+ this.idx +")");
+    if (old) {
+      old.removeAttribute("aria-selected");
+      var video = old.$("video");
+      if (video) {
+        video.pause();
+      }
+    }
+    if (next) {
+      next.setAttribute("aria-selected", "true");
+      if (this.html.classList.contains("view")) {
+        next.scrollIntoView();
+      }
+      var video = next.$("video");
+      if (video && !!+this.params.autoplay) {
+        video.play();
+      }
+    } else {
+      // That should not happen
+      this.idx = -1;
+      // console.warn("Slide doesn't exist.");
+    }
+  }
+
+  Dz.setIncremental = function(aStep) {
+    this.step = aStep;
+    var old = this.slides[this.idx - 1].$('.incremental > *[aria-selected]');
+    if (old) {
+      old.removeAttribute('aria-selected');
+    }
+    var incrementals = $$('.incremental');
+    if (this.step <= 0) {
+      $$.forEach(incrementals, function(aNode) {
+        aNode.removeAttribute('active');
+      });
+      return;
+    }
+    var next = this.slides[this.idx - 1].$$('.incremental > *')[this.step - 1];
+    if (next) {
+      next.setAttribute('aria-selected', true);
+      next.parentNode.setAttribute('active', true);
+      var found = false;
+      $$.forEach(incrementals, function(aNode) {
+        if (aNode != next.parentNode)
+          if (found)
+            aNode.removeAttribute('active');
+          else
+            aNode.setAttribute('active', true);
+        else
+          found = true;
+      });
+    } else {
+      setCursor(this.idx, 0);
+    }
+    return next;
+  }
+
+  Dz.goFullscreen = function() {
+    var html = $('html'),
+        requestFullscreen = html.requestFullscreen || html.requestFullScreen || html.mozRequestFullScreen || html.webkitRequestFullScreen;
+    if (requestFullscreen) {
+      requestFullscreen.apply(html);
+    }
+  }
+  
+  Dz.setProgress = function(aIdx, aStep) {
+    var slide = $("section:nth-of-type("+ aIdx +")");
+    if (!slide)
+      return;
+    var steps = slide.$$('.incremental > *').length + 1,
+        slideSize = 100 / (this.slides.length - 1),
+        stepSize = slideSize / steps;
+    this.progressBar.style.width = ((aIdx - 1) * slideSize + aStep * stepSize) + '%';
+  }
+  
+  Dz.postMsg = function(aWin, aMsg) { // [arg0, [arg1...]]
+    aMsg = [aMsg];
+    for (var i = 2; i < arguments.length; i++)
+      aMsg.push(encodeURIComponent(arguments[i]));
+    aWin.postMessage(aMsg.join(" "), "*");
+  }
+  
+  function init() {
+    Dz.init();
+    window.onkeydown = Dz.onkeydown.bind(Dz);
+    window.onresize = Dz.onresize.bind(Dz);
+    window.onhashchange = Dz.onhashchange.bind(Dz);
+    window.onmessage = Dz.onmessage.bind(Dz);
+  }
+
+  window.onload = init;
+</script>
+
+
+<script> // Helpers
+  if (!Function.prototype.bind) {
+    Function.prototype.bind = function (oThis) {
+
+      // closest thing possible to the ECMAScript 5 internal IsCallable
+      // function 
+      if (typeof this !== "function")
+      throw new TypeError(
+        "Function.prototype.bind - what is trying to be fBound is not callable"
+      );
+
+      var aArgs = Array.prototype.slice.call(arguments, 1),
+          fToBind = this,
+          fNOP = function () {},
+          fBound = function () {
+            return fToBind.apply( this instanceof fNOP ? this : oThis || window,
+                   aArgs.concat(Array.prototype.slice.call(arguments)));
+          };
+
+      fNOP.prototype = this.prototype;
+      fBound.prototype = new fNOP();
+
+      return fBound;
+    };
+  }
+
+  var $ = (HTMLElement.prototype.$ = function(aQuery) {
+    return this.querySelector(aQuery);
+  }).bind(document);
+
+  var $$ = (HTMLElement.prototype.$$ = function(aQuery) {
+    return this.querySelectorAll(aQuery);
+  }).bind(document);
+
+  $$.forEach = function(nodeList, fun) {
+    Array.prototype.forEach.call(nodeList, fun);
+  }
+
+</script>
+<!-- vim: set fdm=marker: }}} -->
