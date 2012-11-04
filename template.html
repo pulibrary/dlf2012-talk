@@ -112,6 +112,7 @@ at Princeton University Library
 </section>
 
 <section>
+  <h1>We started with...</h1>
   <div class="codeblock">
     <pre>
       <code>
@@ -125,17 +126,19 @@ at Princeton University Library
 </section>
 
 <section>
+  <h1>How not to Identify...</h1>
   <div class="codeblock">
     <pre>
       <code>
-      /search?pi=mss
       /search?sulocal=American%20politics%20and%20government
+      /search?pi=mss
       </code>
     </pre>
   </div>
 </section>
 
 <section>
+  <h1>Topic and Respository Pages</h1>
   <div class="codeblock">
     <pre>
       <code>
@@ -147,9 +150,10 @@ at Princeton University Library
 </section>
 
 <section>
-  <div class="codeblock">
+  <h1>PUL Finding Aids URI Templates</h1>
+  <div class="bigcodeblock">
     <pre>
-      <code class="bigcodeblock">
+      <code>
       /collections                              # All collections
       /collections/{call_number}                # Collection with $call_number
       /collections/{call_number}/{component_id} # $component of collection with $call_number
@@ -166,10 +170,25 @@ at Princeton University Library
   </div>
 </section>
 
+
 <section>
+  <h1>With more EACs...</h1>
   <div class="codeblock">
     <pre>
-    <code class="bigcodeblock">
+    <code>
+        /collections/{name_id} # All collections with $name
+        /names/{collection_id} # All names in $collection
+        /names/{topic_id}      # All names related to $topic
+    </code>
+    </pre>
+  </div>
+</section>
+
+<section>
+  <h1>Sample Response from /collections</h1>
+  <div class="bigcodeblock">
+    <pre>
+    <code>
     &lt; HTTP/1.1 200 OK
     &lt; Date: Sat, 03 Nov 2012 15:08:45 GMT
     &lt; Server: Jetty/5.1.12 (Linux/3.2.0-29-generic amd64 java/1.6.0_24
@@ -189,29 +208,19 @@ at Princeton University Library
 </section>
 
 <section>
-  <div class="codeblock">
-    <pre>
-    <code>
-        /collections/{name_id} # All collections concerned with $name
-        /names/{collection_id} # All names in $collection
-        /names/{topic_id}      # All names related to $topic
-    </code>
-    </pre>
-  </div>
-</section>
-
-<section>
-  <div class="codeblock">
-   <pre>
-    <code>       
-            Start
-              |
-         GET $uri.xml  &lt;-----------------+
-              |                          |
-      Link w/ rel=next? (T) --&gt; $uri = &lt;(*)&gt;;rel=next
-              | (F)
-            Done
-</code></pre>
+  <h1>How to Steal our Data</h1>
+  <div style="padding-left: 100px; padding-top: 40px;">
+  <pre>
+        Start
+          |
+     GET $uri.xml  <----------------+
+          |                         |
+        Steal                       |
+          |                         |
+  Link w/ rel=next? (T) -- $uri = <(*)>;rel=next
+          | (F)
+         Done
+  </pre>
   </div>
 </section>
 
@@ -391,22 +400,34 @@ at Princeton University Library
     font-size: 26px;
   }
 
-  .codeblock {
-    margin-top: 100px;
-    background-color: #F8F8F8;
-    border: 1px solid #CCC;
-    line-height: 19px;
-    overflow: auto;
-    padding: 6px 10px;
-    border-radius: 3px;
+  pre, code, tt {
+    font: 22px Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
   }
 
-  pre, code, tt {
-    font: 18px Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+  .codeblock {
+    margin-top: 10px;
+    /*background-color: #F8F8F8;*/
+    /*border: 1px solid #CCC;*/
+    overflow: auto;
+    padding: 6px 0px;
+    border-radius: 3px;
+    line-height: 50px;
+  }
+
+  .codeblock code, .codeblock pre {
+    line-height: 50px;
   }
 
   .bigcodeblock {
+    margin-top: 10px;
+    overflow: auto;
+    padding: 6px 0px;
+    border-radius: 3px;
+  }
+
+  .bigcodeblock code, .bigcodeblock pre {
     font-size: 14px;
+    line-height: 22px;
   }
 
   blockquote {
