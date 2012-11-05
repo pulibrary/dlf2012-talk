@@ -109,7 +109,7 @@ at Princeton University Library
     <pre>
       <code>
       /collections/{call_number}
-      /collections/{call_number}/{component_id}
+      /collections/{call_number}/{component_id} # new
       /repositories
       /topics
       </code>
@@ -140,6 +140,19 @@ at Princeton University Library
     </pre>
   </div>
 </section>
+
+<section>
+  <h1>Overloaded /collections URIs</h1>
+  <div class="codeblock">
+    <pre>
+      <code>
+      /collections/{repository_id} # All in $repository
+      /collections/{topic_id}      # All about $topic
+      </code>
+    </pre>
+  </div>
+</section>
+
 
 <section>
   <h1>PUL Finding Aids URI Templates</h1>
@@ -408,7 +421,7 @@ at Princeton University Library
     font-size: 26px;
   }
 
-  .codeblock {
+ /* .codeblock {
     margin-top: 100px;
     background-color: #F8F8F8;
     border: 1px solid #CCC;
@@ -434,6 +447,37 @@ at Princeton University Library
     overflow: auto;
     padding: 6px 10px;
     border-radius: 3px;
+  }
+*/
+
+pre, code, tt {
+    font: 22px Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
+  }
+
+  .codeblock {
+    margin-top: 10px;
+    /*background-color: #F8F8F8;*/
+    /*border: 1px solid #CCC;*/
+    overflow: auto;
+    padding: 6px 0px;
+    border-radius: 3px;
+    line-height: 50px;
+  }
+
+  .codeblock code, .codeblock pre {
+    line-height: 50px;
+  }
+
+  .bigcodeblock {
+    margin-top: 10px;
+    overflow: auto;
+    padding: 6px 0px;
+    border-radius: 3px;
+  }
+
+  .bigcodeblock code, .bigcodeblock pre {
+    font-size: 14px;
+    line-height: 22px;
   }
 
   blockquote {
