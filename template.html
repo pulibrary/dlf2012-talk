@@ -100,19 +100,11 @@ at Princeton University Library
 </section>
 
 <section>
-    <figure> <!-- Figures are used to display images and videos fullpage -->
-      <img src="slides/Slide14.jpg">
-      <!--<figcaption>An image</figcaption>-->
-    </figure>
-</section>
-
-<section>
     <h1>Architecture and Services</h1>
     <footer>Jon Stroop</footer>
 </section>
 
 <section>
-  <h1>We started with...</h1>
   <div class="codeblock">
     <pre>
       <code>
@@ -126,19 +118,17 @@ at Princeton University Library
 </section>
 
 <section>
-  <h1>How not to Identify...</h1>
   <div class="codeblock">
     <pre>
       <code>
-      /search?sulocal=American%20politics%20and%20government
       /search?pi=mss
+      /search?sulocal=American%20politics%20and%20government
       </code>
     </pre>
   </div>
 </section>
 
 <section>
-  <h1>Topic and Respository Pages</h1>
   <div class="codeblock">
     <pre>
       <code>
@@ -150,10 +140,9 @@ at Princeton University Library
 </section>
 
 <section>
-  <h1>PUL Finding Aids URI Templates</h1>
-  <div class="bigcodeblock">
+  <div class="codeblock">
     <pre>
-      <code>
+      <code class="bigcodeblock">
       /collections                              # All collections
       /collections/{call_number}                # Collection with $call_number
       /collections/{call_number}/{component_id} # $component of collection with $call_number
@@ -170,25 +159,10 @@ at Princeton University Library
   </div>
 </section>
 
-
 <section>
-  <h1>With more EACs...</h1>
   <div class="codeblock">
     <pre>
-    <code>
-        /collections/{name_id} # All collections with $name
-        /names/{collection_id} # All names in $collection
-        /names/{topic_id}      # All names related to $topic
-    </code>
-    </pre>
-  </div>
-</section>
-
-<section>
-  <h1>Sample Response from /collections</h1>
-  <div class="bigcodeblock">
-    <pre>
-    <code>
+    <code class="bigcodeblock">
     &lt; HTTP/1.1 200 OK
     &lt; Date: Sat, 03 Nov 2012 15:08:45 GMT
     &lt; Server: Jetty/5.1.12 (Linux/3.2.0-29-generic amd64 java/1.6.0_24
@@ -208,19 +182,29 @@ at Princeton University Library
 </section>
 
 <section>
-  <h1>How to Steal our Data</h1>
-  <div style="padding-left: 100px; padding-top: 40px;">
-  <pre>
-        Start
-          |
-     GET $uri.xml  <----------------+
-          |                         |
-        Steal                       |
-          |                         |
-  Link w/ rel=next? (T) -- $uri = <(*)>;rel=next
-          | (F)
-         Done
-  </pre>
+  <div class="codeblock">
+    <pre>
+    <code>
+        /collections/{name_id} # All collections concerned with $name
+        /names/{collection_id} # All names in $collection
+        /names/{topic_id}      # All names related to $topic
+    </code>
+    </pre>
+  </div>
+</section>
+
+<section>
+  <div class="codeblock">
+   <pre>
+    <code>       
+            Start
+              |
+         GET $uri.xml  &lt;-----------------+
+              |                          |
+      Link w/ rel=next? (T) --&gt; $uri = &lt;(*)&gt;;rel=next
+              | (F)
+            Done
+</code></pre>
   </div>
 </section>
 
@@ -250,7 +234,7 @@ at Princeton University Library
 <section>
   <h1>Goal</h1>
   <ul>
-            <li>More flexible and modular representation of finding aids</ul>
+      <li>More flexible and modular representation of finding aids</ul>
 </section>
 
 <section>
@@ -279,7 +263,7 @@ at Princeton University Library
 </section>
 
 <section>
-  <h1>Tension between Prototypicality and Innovation</h1>
+  <h1>Prototypicality vs. Innovation</h1>
   <p>There are two scenarios in which we should consider breaking a design pattern:</p>
   <ul class="incremental">
       <li>The established way becomes outdated</li>
@@ -292,7 +276,6 @@ at Princeton University Library
 <section>
   <h1>Discount Usability Testing</h1>
   <h3>(Science without Grants!)</h3>
-  <p>There are two scenarios in which we should consider breaking a design pattern:</p>
   <ul class="incremental">
       <li>Identify Personas (aka User Types) and Recruitment</li>
       <li>Create “Tasks” for Testing Scripts</li>
@@ -300,6 +283,13 @@ at Princeton University Library
     </ul>
 
     <div role="note">The only way we can test our new features before they get to production is to develop a prototype with real data as quickly as possible and observe a handful of real users.</div>
+</section>
+
+<section>
+    <figure> <!-- Figures are used to display images and videos fullpage -->
+      <img src="img/prototype.png">
+      <!--<figcaption>An image</figcaption>-->
+    </figure>
 </section>
 
 <section>
@@ -312,11 +302,15 @@ at Princeton University Library
 <section>
   <h1>Trello</h1>
   <h3>Indispensable Tool #2</h3>
+</section>
+
+<section>
+  <h1>"Stubs"</h1>
   <ul class="incremental">
-      <li>Traditional “Ticketing/Bug Tracking Systems” are not user friendly enough  and require too many clicks for basic tasks
-</li>
-      <li>Trello is more flexible, productive, and FUN!</li>
-      <li>Ongoing Feedback goes here and is prioritized for each development cycle.  Interpretation of feedback can be discussed among the group and honed into “goals, problems, solutions”.</li>
+      <li>Help System (WordPress)</li>
+      <li>Google Analytics (Events)</li>
+      <li>Comments (Intense Debate)</li>
+      <li>Digitized Content (Sustainable growth)</li>
     </ul>
 </section>
 
@@ -387,47 +381,39 @@ at Princeton University Library
     font-size: 50px;
   }
   h3 {
-    margin: 50px 0 20px 100px;
+    margin: 20px 0 20px 100px;
   }
 
   ul {
-      margin: 50px 100px;
-      font-size: 20px;
+      margin: 50px 200px;
+      font-size: 26px;
+  }
+
+  .small {
+    font-size: 20px;
   }
 
   p {
-    margin: 75px;
+    margin: 20px 75px;
     font-size: 26px;
   }
 
-  pre, code, tt {
-    font: 22px Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
-  }
-
   .codeblock {
-    margin-top: 10px;
-    /*background-color: #F8F8F8;*/
-    /*border: 1px solid #CCC;*/
+    margin-top: 100px;
+    background-color: #F8F8F8;
+    border: 1px solid #CCC;
+    line-height: 19px;
     overflow: auto;
-    padding: 6px 0px;
+    padding: 6px 10px;
     border-radius: 3px;
-    line-height: 50px;
   }
 
-  .codeblock code, .codeblock pre {
-    line-height: 50px;
+  pre, code, tt {
+    font: 18px Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace;
   }
 
   .bigcodeblock {
-    margin-top: 10px;
-    overflow: auto;
-    padding: 6px 0px;
-    border-radius: 3px;
-  }
-
-  .bigcodeblock code, .bigcodeblock pre {
     font-size: 14px;
-    line-height: 22px;
   }
 
   blockquote {
